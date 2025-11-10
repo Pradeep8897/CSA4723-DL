@@ -1,0 +1,23 @@
+import numpy as np
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
+true_labels_multi = np.array([0, 1, 2, 0, 1, 2, 0, 1, 2, 0])
+predicted_labels_multi = np.array([0, 1, 2, 1, 0, 2, 0, 1, 1, 0])
+cm_multi = confusion_matrix(true_labels_multi, predicted_labels_multi)
+print("Multi-level Confusion Matrix:")
+print(cm_multi)
+disp_multi = ConfusionMatrixDisplay(confusion_matrix=cm_multi, display_labels=['Class 0', 'Class 1', 'Class 2'])
+disp_multi.plot()
+plt.title("Multi-level Confusion Matrix")
+plt.show()
+true_labels_binary = np.array([0, 1, 0, 1, 0, 1, 0, 1])
+predicted_labels_binary = np.array([0, 1, 1, 1, 0, 0, 0, 1])
+cm_binary = confusion_matrix(true_labels_binary, predicted_labels_binary)
+print("\nBi-level Confusion Matrix:")
+print(cm_binary)
+disp_binary = ConfusionMatrixDisplay(confusion_matrix=cm_binary, display_labels=['Negative', 'Positive'])
+disp_binary.plot()
+plt.title("Bi-level Confusion Matrix")
+plt.show()
+
+output:
